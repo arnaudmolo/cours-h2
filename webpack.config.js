@@ -1,12 +1,12 @@
 'use strict';
- 
- 
-const path = require('path');
-const webpack = require('webpack');
-const _ = require('lodash');
-const embedFileSize = 65536;
- 
-const config = {
+
+
+var path = require('path');
+var webpack = require('webpack');
+var _ = require('lodash');
+var embedFileSize = 65536;
+
+var config = {
   entry: [
     './src/index'
   ],
@@ -36,13 +36,13 @@ const config = {
         loader: 'url?limit=' + embedFileSize
       }
     ],
-    preLoaders: [
-      {
-        test: /\.js$/,
-        loaders: ['eslint'],
-        include: [new RegExp(path.join(__dirname, 'src'))]
-      }
-    ]
+    // preLoaders: [
+    //   {
+    //     test: /\.js$/,
+    //     loaders: ['eslint'],
+    //     include: [new RegExp(path.join(__dirname, 'src'))]
+    //   }
+    // ]
   },
   node: {
     __filename: true
@@ -50,12 +50,12 @@ const config = {
   stats: {
     colors: true
   },
-  eslint: {
-    configFile: 'src/.eslintrc'
-  }
+  // eslint: {
+  //   configFile: 'src/.eslintrc'
+  // }
 };
- 
-const production = _.extend({}, config, {
+
+var production = _.extend({}, config, {
   plugins: config.plugins.concat(new webpack.NoErrorsPlugin()),
   module: _.extend({}, config.module, {
     loaders: config.module.loaders.concat({
@@ -64,10 +64,10 @@ const production = _.extend({}, config, {
       include: [new RegExp(path.join(__dirname, 'src'))]
     })
   }),
-  eslint: _.extend({}, config.eslint, {emitError: true})
+  // eslint: _.extend({}, config.eslint, {emitError: true})
 });
- 
-const development = _.extend({}, config, {
+
+var development = _.extend({}, config, {
   entry: config.entry.concat([
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server'
@@ -82,7 +82,7 @@ const development = _.extend({}, config, {
   }),
   devtool: 'eval'
 });
- 
- 
+
+
 module.exports = production;
 module.exports.development = development;
