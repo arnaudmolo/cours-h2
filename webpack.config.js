@@ -36,13 +36,13 @@ var config = {
         loader: 'url?limit=' + embedFileSize
       }
     ],
-    // preLoaders: [
-    //   {
-    //     test: /\.js$/,
-    //     loaders: ['eslint'],
-    //     include: [new RegExp(path.join(__dirname, 'src'))]
-    //   }
-    // ]
+    preLoaders: [
+      {
+        test: /\.js$/,
+        loaders: ['eslint'],
+        include: [new RegExp(path.join(__dirname, 'src'))]
+      }
+    ]
   },
   node: {
     __filename: true
@@ -50,9 +50,9 @@ var config = {
   stats: {
     colors: true
   },
-  // eslint: {
-  //   configFile: 'src/.eslintrc'
-  // }
+  eslint: {
+    configFile: 'src/.eslintrc'
+  }
 };
 
 var production = _.extend({}, config, {
@@ -60,7 +60,7 @@ var production = _.extend({}, config, {
   module: _.extend({}, config.module, {
     loaders: config.module.loaders.concat({
       test: /\.js$/,
-      loaders: ['babel'],
+      loaders: ['babel-loader'],
       include: [new RegExp(path.join(__dirname, 'src'))]
     })
   }),

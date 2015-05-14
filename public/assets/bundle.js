@@ -51,47 +51,13 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
-	var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var d3 = _interopRequire(__webpack_require__(2));
+	var _d3 = __webpack_require__(2);
 
-	var round = Math.round;
-
-	var stingToValue = function (value) {
-	  return round(value.slice(0, value.length - 2));
-	};
-
-	d3.csv("./source-data.csv", function (res) {
-
-	  var viz = d3.select("#viz");
-	  var svg = viz.append("svg");
-	  var width = stingToValue(viz.style("width"));
-	  var height = stingToValue(viz.style("height"));
-	  var margin = Object.freeze({
-	    left: 50,
-	    top: 50,
-	    right: 50,
-	    bottom: 50
-	  });
-
-	  res.forEach(function (e, i) {
-	    console.log(e, i);
-	  });
-
-	  var xScale = d3.time.scale().range([margin.left, width - margin.right]);
-
-	  var yScale = d3.scale.linear().domain([0, 100]).range([margin.top, height - margin.bottom]);
-
-	  var xAxis = d3.svg.axis().scale(xScale).orient("bottom");
-
-	  svg.attr("width", width).attr("height", height);
-
-	  var scene = svg.append("g").attr("class", "scene");
-
-	  var axis = scene.append("g").attr("class", "axis").attr("transform", "translate(0, " + yScale(50) + ")").call(xAxis);
-	});
+	var _d32 = _interopRequireDefault(_d3);
 
 /***/ },
 /* 2 */

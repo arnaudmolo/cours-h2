@@ -15,7 +15,7 @@
     "lint:browser": "eslint --config=./src/.eslintrc src/**/**/*.js"
   },
   "dependencies": {
-    "babel-core": "^4.7.16",
+    "babel": "^5.3.3",
     "css-loader": "^0.9.1",
     "d3": "^3.5.5",
     "eslint": "^0.18.0",
@@ -28,5 +28,8 @@
     "react": "^0.13.1",
     "webpack": "^1.7.3",
     "webpack-dev-server": "^1.7.0"
+  },
+  "devDependencies": {
+    "babel-loader": "^5.0.0"
   }
 }
