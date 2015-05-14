@@ -39,7 +39,7 @@ var config = {
     preLoaders: [
       {
         test: /\.js$/,
-        loaders: ['eslint'],
+        loaders: [/*'eslint'*/],
         include: [new RegExp(path.join(__dirname, 'src'))]
       }
     ]
@@ -50,9 +50,9 @@ var config = {
   stats: {
     colors: true
   },
-  eslint: {
-    configFile: 'src/.eslintrc'
-  }
+  // eslint: {
+  //   configFile: 'src/.eslintrc'
+  // }
 };
 
 var production = _.extend({}, config, {

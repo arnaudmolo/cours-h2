@@ -59,6 +59,16 @@
 
 	var _d32 = _interopRequireDefault(_d3);
 
+	var constante = 'constante';
+	var variable = 'variable';
+	var lett = 'let';
+
+	if (true) {
+	  var _inDaScope = 'dans le scope';
+	}
+
+	console.log(inDaScope);
+
 /***/ },
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
